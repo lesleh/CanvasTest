@@ -2,12 +2,15 @@ import leftPad from "./left_pad";
 
 export default class Color {
 
+    // Create a new colour with the specified values for red, green,
+    // and blue, 0-255.
     constructor(r, g, b) {
         this.r = r;
         this.g = g;
         this.b = b;
     }
 
+    // Generates a new colour with random red, green, and blue values.    
     static randomColor() {
         return new Color(
             Math.round(Math.random() * 255.0),
@@ -16,6 +19,7 @@ export default class Color {
         );
     }
 
+    // Gets the hue for the color, as a value between 0 and 360.    
     hue() {
         let r = this.r / 255.0;
         let g = this.g / 255.0;
@@ -42,6 +46,7 @@ export default class Color {
         }
     }
 
+    // Returns the colour as a HTML hex string, e.g. #ABCDEF    
     toHexString() {
         return "#"
             + leftPad(this.r.toString(16), "0", 2)
